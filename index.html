@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CGPA Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="noise"></div>
+  <div class="grid-bg"></div>
+
+  <div class="container">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-badge">GPA SYSTEM</div>
+      <h1 class="title">CGPA<br/><span class="title-accent">CALCULATOR</span></h1>
+      <p class="subtitle">Track your academic performance with precision</p>
+    </header>
+
+    <!-- Step 1: Number of Courses -->
+    <section class="card" id="step-courses">
+      <div class="card-label">STEP 01</div>
+      <h2 class="card-title">How many courses?</h2>
+      <div class="input-row">
+        <input type="number" id="numCourses" class="main-input" min="1" max="20" placeholder="e.g. 6" />
+        <button class="btn-primary" id="btnGenerate">Generate →</button>
+      </div>
+      <p class="hint">Enter a number between 1 and 20</p>
+    </section>
+
+    <!-- Step 2: Course Inputs -->
+    <section class="card hidden" id="step-grades">
+      <div class="card-label">STEP 02</div>
+      <h2 class="card-title">Enter course details</h2>
+
+      <div class="table-header">
+        <span>Course</span>
+        <span>Course Name</span>
+        <span>Grade (0–10)</span>
+        <span>Credit Hours</span>
+      </div>
+
+      <div id="courseInputs"></div>
+
+      <div class="grade-legend">
+        <span class="legend-title">Grade Scale →</span>
+        <span class="badge badge-ex">O = 10</span>
+        <span class="badge badge-a">A+ = 9</span>
+        <span class="badge badge-b">A = 8</span>
+        <span class="badge badge-c">B+ = 7</span>
+        <span class="badge badge-d">B = 6</span>
+        <span class="badge badge-f">F = 0</span>
+      </div>
+
+      <button class="btn-primary btn-full" id="btnCalculate">Calculate CGPA ↓</button>
+    </section>
+
+    <!-- Step 3: Results -->
+    <section class="card hidden" id="step-results">
+      <div class="card-label">STEP 03</div>
+      <h2 class="card-title">Your Results</h2>
+
+      <div class="result-hero">
+        <div class="result-block">
+          <div class="result-label">SEMESTER GPA</div>
+          <div class="result-value" id="gpaDisplay">—</div>
+        </div>
+        <div class="divider-v"></div>
+        <div class="result-block">
+          <div class="result-label">OVERALL CGPA</div>
+          <div class="result-value highlight" id="cgpaDisplay">—</div>
+        </div>
+        <div class="divider-v"></div>
+        <div class="result-block">
+          <div class="result-label">TOTAL CREDITS</div>
+          <div class="result-value" id="creditsDisplay">—</div>
+        </div>
+      </div>
+
+      <div class="cgpa-bar-wrap">
+        <div class="cgpa-bar-track">
+          <div class="cgpa-bar-fill" id="cgpaBar"></div>
+        </div>
+        <div class="cgpa-bar-labels">
+          <span>0</span><span>2.5</span><span>5</span><span>7.5</span><span>10</span>
+        </div>
+      </div>
+
+      <div class="grade-remark" id="gradeRemark"></div>
+
+      <!-- Course breakdown table -->
+      <h3 class="breakdown-title">Course Breakdown</h3>
+      <div class="breakdown-table" id="breakdownTable"></div>
+
+      <button class="btn-reset" id="btnReset">↺ Start Over</button>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
